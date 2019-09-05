@@ -1,0 +1,35 @@
+<div class="jumbotron jumbotron-fluid bg-primary text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <img
+          [src]="pelicula.poster_path | imagen"
+          class="card-img-top mb-5"
+          [alt]="pelicula.title"
+        />
+        <button
+          (click)="irAtras()"
+          type="button"
+          class="btn btn-outline-light btn-block"
+        >
+          Regresar
+        </button>
+      </div>
+      <div class="col-8">
+        <h1 class="display-4 mb-5">
+          {{ pelicula.title | uppercase }} ({{
+            pelicula.release_date | date: 'y'
+          }})
+        </h1>
+        <p class="lead">
+          <span class="font-weight-bold">Descripción: </span
+          >{{ pelicula.overview }}
+        </p>
+        <p class="lead">
+          <span class="font-weight-bold">Calificacion: </span
+          >{{ pelicula.vote_average }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

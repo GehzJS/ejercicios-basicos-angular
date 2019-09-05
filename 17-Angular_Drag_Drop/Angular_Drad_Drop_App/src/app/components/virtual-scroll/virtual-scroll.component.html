@@ -1,0 +1,30 @@
+<div class="text-center">
+  <div class="list-group-item lead active">Lista con virtual scroll</div>
+  <div class="btn-group w-100" role="group" aria-label="Basic example">
+    <button (click)="inicio()" type="button" class="btn btn-success m-2 w-25">
+      Inicio
+    </button>
+    <button
+      (click)="medio()"
+      type="button"
+      class="btn btn-warning text-white m-2 w-25"
+    >
+      En medio
+    </button>
+    <button (click)="final()" type="button" class="btn btn-danger m-2 w-25">
+      Final
+    </button>
+  </div>
+</div>
+<cdk-virtual-scroll-viewport
+  itemSize="50"
+  class="list-group"
+  style="height: 442px"
+>
+  <div
+    *cdkVirtualFor="let persona of personas; let i = index; let c = count"
+    class="list-group-item animated fadeInLeft slow"
+  >
+    Item {{ i + 1 }} de {{ c }}
+  </div>
+</cdk-virtual-scroll-viewport>

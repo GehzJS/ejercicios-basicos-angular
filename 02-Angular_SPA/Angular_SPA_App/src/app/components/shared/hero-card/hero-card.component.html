@@ -1,0 +1,9 @@
+<div class="card p-3">
+	<img [src]="heroe.foto" class="card-img-top" [alt]="heroe.foto">
+	<div class="card-body">
+		<h5 class="card-title">{{ heroe.nombre }}</h5>
+		<p class="card-text">{{ heroe.descripcion }}</p>
+		<p class="card-text"><small class="text-muted">{{ heroe.nacimiento }}</small></p>
+	</div>
+	<button (click)="seeHero(i)" type="button" class="btn btn-outline-dark btn-block">Ver más</button>
+</div>

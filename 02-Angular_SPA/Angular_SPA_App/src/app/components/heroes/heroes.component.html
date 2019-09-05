@@ -1,0 +1,9 @@
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">Heroes page</h1>
+		<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	</div>
+</div>
+<div class="card-columns">
+	<app-hero-card (selectedHero)="seeHero($event)" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes; let i = index;"></app-hero-card>
+</div>

@@ -1,0 +1,12 @@
+/*****************************************************************************************************/
+    CICLO DE VIDA DE ANGULAR
+/*****************************************************************************************************/
+
+        1.- ngOnInit: Cuando se inicializa el componente.
+        2.- ngOnChanges: Cuando cambian los datos del componente.
+        3.- ngDoCheck: Cuando se revisa la detección de cambios del componente.
+        4.- ngAfterContentInit: Después de insertar contenido en el componente.
+        5.- ngAfterContentChecked: Después de revisar el contenido insertado en el componente.
+        6.- ngAfterViewInit: Después de que se inicializan los componentes hijos.
+        7.- ngAfterViewChecked: Después de que se revisa la inicialización de los componentes hijos.
+        8.- ngOnDestroy: Cuando se hace un cambio de componente.

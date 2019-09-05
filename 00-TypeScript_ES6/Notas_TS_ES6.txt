@@ -1,0 +1,360 @@
+/*****************************************************************************************************/
+	LET Y CONST
+/*****************************************************************************************************/
+		
+		LET: Es una variable local cuyo contenido es válido únicamente en donde se crea (sólo fuera de una 
+			 función, o sólo dentro de una función [Llamado tambien SCOPE]).
+
+			Ejemplo:
+
+			let name = "nombre1"; // Contenido válido fuera de las funciones.
+
+			accion function() {
+				let name = "nombre2"; // Contenido válido sólo en la función actual.
+			}
+		_______________________________________________________________________________________________
+
+		CONST: Es una constante global cuyo valor debería ser el mismo en toda la clase, y este debe ser 
+			   definido al momento de su creación. El nombre de la constante por norma debe ir siempre en
+			   mayúsculas.
+
+			Ejemplo:
+
+			const NAME = "nombre1" // El valor definido aquí se aplica para toda la clase.
+
+			accion function() {
+				const NAME = "nombre2" // El valor puede cambiar pero sólo es válido en esta función.
+			}
+
+/*****************************************************************************************************/
+	DECLARACION DE VARIABLES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Ejemplos:
+
+			let variable : tipo = valor;
+
+/*****************************************************************************************************/
+	TIPOS DE DATOS SIMPLES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		STRING: Para variables de texto plano.
+
+			Ejemplo:
+
+			let name : string = "nombre";
+		_______________________________________________________________________________________________
+
+		NUMBER: Para variables con numeros.
+
+			Ejemplo:
+
+			let numero : number = 1;
+		_______________________________________________________________________________________________
+
+		BOOLEAN: Para variables con valores verdadero o falso.
+
+			Ejemplo:
+
+			let respuesta : boolean = true;
+
+/*****************************************************************************************************/
+	TIPOS DE DATOS COMPUESTOS EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		ANY: Acepta valores de cualquier tipo.
+
+			Ejemplos:
+
+			let name : any = "nombre";
+			let numero : any = 1;
+			let respuesta : any = true;
+		_______________________________________________________________________________________________
+
+		OBJETO: Es un arreglo que puede contener distintos valores de varios tipos de dato.
+
+			Ejemplo:
+
+			let persona = {
+				name: "nombre",
+				age: 20,
+				married: false
+			}
+
+/*****************************************************************************************************/
+	PLANTILLAS LITERALES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Su función es concatenar distintos tipos de valores en una sola línea. Para usarse se debe comenzar
+	 	la cadena con las comillas ``. Todo lo que este dentro de ellas será tomado como texto, a excepcion
+	 	de lo que este dentro de ${}, lo cual es código funcional.
+
+			Ejemplo:
+
+			let thing;
+			let text = "imprime";
+
+			let anotherText function() {
+				return "valores";
+			}
+
+			thing = `Esto ${ text } todo tipo de ${ anotherText() }`;
+
+/*****************************************************************************************************/
+	TIPOS DE PARÁMETROS EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		OBLIGATORIO: Este tipo de parámetro es indispensable para la ejecución de la función, y por regla 
+					 debe ir al principio.
+		_______________________________________________________________________________________________
+
+		PREDEFINIDO: Este tipo de parámetro cuenta con un valor por defecto, por lo que puede ser opcional 
+					 mandarlo. Por regla debe ir después de los parámetros obligatorios.
+		_______________________________________________________________________________________________
+
+		OPCIONAL: Este tipo de parámetro es completamente opcional, por lo que no afecta directamente a la 
+				  ejecución de la función. por regla debe ir al final y debe ser marcado con un ? después
+				  del nombre.
+		_______________________________________________________________________________________________
+
+			Ejemplo:
+
+			let accion function(required : string,					// Parámetro obligatorio
+								predefined : string = "value",		// Parámetro predefinido
+								optional? : string){}				// Parámetro opcional
+
+/*****************************************************************************************************/
+	FUNCIÓN FLECHA EN TYPESCRIPT / ECMAScript 6
+/*****************************************************************************************************/
+		
+		Estructura:
+
+			// Función en ES5
+
+			let name function( parametro ) {
+				return "retorno";
+			}
+
+			// Función en ES6
+
+			let name = ( parametro ) => { "retorno" }
+		_______________________________________________________________________________________________
+
+		Ejemplo:
+
+			let name : string = "nombre1";
+
+			let newUser = {
+				name: "nombre2",
+				print() {
+				setTimeOut( () => console.log( this.name ), 1000 );
+				}
+			}
+
+		Al usar la función flecha el [this] hace referencia al valor del atributo [name] dentro del objeto,
+		en el cual se encuentra la función, en lugar de la variable que se encuentra fuera del objeto, tal
+		como sucedería si se realizara la misma operación con una función normal (de ES5).
+
+/*****************************************************************************************************/
+	DESESTRUCTURACIÓN DE OBJETOS Y ARREGLOS EN TYPESCRIPT
+/*****************************************************************************************************/
+
+		Estructura:
+
+			let user = {
+				name: "nombre",
+				password: "12345",
+				role: "admin"
+			}
+
+			// Desestructucturación en ES5
+
+			let name : string = user.name;
+			let password : string = user.password;
+			let role : string = user.role;
+
+			// Desestructuración en ES6
+
+			let { name, password, role } = user;	// Para un arreglo, [] reemplaza a {} y es secuencial.
+
+		En la desestructuración de objetos en ES6 no se le puede definir un tipo de dato a los atributos, 
+		ya que con esto toma el tipo por defecto del atributo. Si se agregan dos puntos y algo después de 
+		éste, eso será tomado como un alias de dicho atributo [ attribute : string ].
+		De esta manera, [string] ahora es el alias que se deberá usar para acceder a [attribute], en lugar 
+		de asignársele como un tipo de dato.
+
+/*****************************************************************************************************/
+	PROMESAS EN ECMAScript 6
+/*****************************************************************************************************/
+		
+		Las promesas son tareas que se llevan a cabo cuando una función asíncrona finaliza. Reciben dos 
+		parámetros: el primero es la acción a ejecutarse si la función finaliza correctamente, y la segunda
+		es la tarea que se ejecuta cuando no sucede así. El código asíncrono debe ir contenido dentro de la
+		promesa.
+
+			Ejemplo:
+
+			// Ejecución del código asíncrono dentro de una promesa
+
+			let action = new Promise( ( success, error ) => {
+				// Do something with async code
+			} )
+
+			// Funciones que se ejecutan de acuerdo al éxito o fracaso tras la ejecución de la función
+
+			action.then( () => "success", () => "error" );
+
+/*****************************************************************************************************/
+	INTERFACES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Las interfaces se utilizan para definir objetos con sus respectivos atributos en una clase, los 
+		cuales serán fijos y sus nombres no podrán ser modificados, eliminados ni agregados. Esto solo 
+		ocurre con sus valores. Las interfaces pueden ser creadas para definir un tipo de dato compuesto y
+		personalizado que será usado en la clase actual.
+
+			Ejemplo:
+
+				interface User {
+					name: "nombre",
+					password: "12345",
+					role: "admin"
+				}
+
+				// Uso del dato cómo un parametro en JavaScript
+
+				function accionJS( user: { name : string, password : string, role : string } ){}
+
+				// Uso del dato cómo un parámetro en TypeScript
+
+				function accionTS( user : User ){}
+
+/*****************************************************************************************************/
+	CLASES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Estructura:
+
+			// Definición de la clase
+
+			class User {
+
+				name : string;
+				password : string;
+				role : string;
+
+				canlogin(){}
+				canLogout(){}
+			}
+
+			// Uso de la clase
+
+			let newUser : User = new User();
+
+/*****************************************************************************************************/
+	CONSTRUCTOR DE UNA CLASE EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Un constructor es una función que se ejecuta cuando se crea una instancia de la clase. Se usa para
+		ejecutar código antes de que se inicie la clase, ya sea para asignar valores a los parametros,
+		inicializar variables, etc.
+
+			Ejemplo:
+
+				class User {
+
+					name : string;
+					password : string;
+					role : string;
+
+					// El constructor recibe los parametros para asignarle valores a los atributos.
+
+					constructor( name : string, password : string, role : string) {
+
+						// El this hace referencia a los atributos y métodos de la clase
+
+						this.name = name;			//
+						this.password = password;	// Asigna los valores de los parámetros a los atributos
+						this.role = role;			//
+					}
+
+					canlogin(){}
+					canLogout(){}
+				}
+
+				// Al instanciar una clase, es necesario mandar los parametros requeridos por el constructor de esta.
+
+				let newUser : User = new User( name : "nombre", password : "12345", role : "admin" );
+		_______________________________________________________________________________________________
+
+		Otra manera de definir atributos de la clase y a su vez asignarles un valor por medio del 
+		constructor es inyectando la información en este. Para esto se crea un parámetro en el constructor
+		y se le asigna [public] antes de este, lo que indica que ese valor también será una tributo de la 
+		clase actual, y su valor será el que se le asigne al momento de pasarselo al constructor.
+
+			Ejemplo:
+
+			// Método convencional
+
+			name : string; // Se crea un atributo de la clase.
+
+			constructor( name : string ) {
+				this.name = name; // Se le asigna el valor del parámetro del cosntructor.
+			}
+
+			// Método de inyección
+
+			constructor( public name : string ){} // Se crea el atributo y se le asigna el valor a la vez.
+
+/*****************************************************************************************************/
+	MÓDULOS DE TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Los módulos permiten segmentar el código en pequeñas partes para que sea más fácil mantenerlo. Para
+		usar los módulos es requerido usar la palabra [export] en una clase para poder usar su código en 
+		otra, y la palabra [import] para usar código de otra clase en la actual. Adicionalmente se puede 
+		crear una clase esclusiva para exportar todos los módulos que tengamos almacenados, con el fin de 
+		evitar varias líneas de import en nuestras clases.
+
+			Ejemplo:
+
+			// Clase 1								/**/		// Clase 2
+													/**/
+			export class User {						/**/		export class Employee {
+				name : string;						/**/			name : string;
+				password : string;					/**/			lastName : string;
+				role : string;						/**/			age : number;
+													/**/
+				constructor(){}						/**/			constructor(){}
+													/**/
+				canlogin(){}						/**/			mainTask(){}
+				canLogout(){}						/**/			secondaryTask(){}
+			}										/**/		}
+													/**/
+			/*---------------------------------------------------------------------------------------*/
+													/**/
+			// Clase de exportación de módulos		/**/		// Clase principal
+													/**/
+			export { User } from "./user";			/**/		import { User, Employee } from "./ExClass";
+			export { Employee } from "./employee";	/**/
+													/**/		let user : User = new User();
+													/**/		let employee : Employee = new Employee();
+
+/*****************************************************************************************************/
+	DECORADORES DE CLASES EN TYPESCRIPT
+/*****************************************************************************************************/
+		
+		Los decoradores tiene como objetivo el agregar funcionalidades extra a las clases u objeto al que 
+		decoran.
+
+			Ejemplo:
+
+			// Función extra para la clase User
+			function consola( constructor:Function ) {
+				console.log( constructor ) // Obtiene el código del constructor
+			}
+
+			@consola // Se asigna la función consola a la clase User
+			class User {
+				constructor( public name : string ){}
+			}

@@ -1,0 +1,26 @@
+﻿/******************************************************************************************************/
+	PIPES EN ANGULAR
+/******************************************************************************************************/
+	
+		Los pipes son modificadores visuales que pueden asignarse a un elemento dentro del HTML. Su 
+		función es mostrar una sección con un formato diferente, sin necesidad de cambiar la información
+		en sí.
+
+		Lista:
+
+			- uppercase [ uppercase ] // Convierte el texto a mayúsculas.
+			- lowercasse [ lowercase ] // Convierte el texto a minúsculas.
+			- slice [ slice:x || slice:x:x ] // Extrae un fragmento del valor o arreglo.
+			- number [ number:'x.x-x' || number:'.x-x' ] // Muestra el número en decimales.
+			- percent [ percent:'x.x-x' ]// Muestra el número en porcentaje.
+			- currency [ currency:'CODE':'code/symbol-narrow':'x.x-x' ] // Cambia el tipo de moneda.
+			- json [ json ] // Muestra un objeto en formato Json.
+			- async [ async ] // Obtiene valores derivados de promesas.
+			- date [ date:'FORMAT' ] // Modifica los parámetros de la fecha.
+			- limitTo [  ] // Limita el contenido mostrado a cierto número de caracteres.
+
+		Ejemplo:
+
+			{{ fecha | date 'y' }} // Muestra sólo el año de la fecha dada.
+
+			{{ texto | uppercase }} // Muestra el texto en mayúsculas.

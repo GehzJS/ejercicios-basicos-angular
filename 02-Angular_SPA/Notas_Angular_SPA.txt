@@ -1,0 +1,58 @@
+﻿/******************************************************************************************************/
+	SERVICIOS EN ANGULAR
+/******************************************************************************************************/
+		
+		Un servicio es una clase dedicada al manejo de los datos que poesteriormente serán usados por 
+		los componentes de las vistas. Esto se hace con el fin de evitar el manejo de datos 
+		directamente en las vistas por motivos de escalabilidad. 
+
+		Los servicios poseen las siguientes características:
+
+			-	Llevar a cabo las operaciones CRUD ( CREATE, READ, UPDATE, DELETE ).
+			-	Brindar información a las vistas.
+			-	Mantener la información de manera persistente ( lista para ser consumida ).
+			-	Servir como recursos reutilizables en la aplicacion.
+
+/******************************************************************************************************/
+	INPUT EN ANGULAR
+/******************************************************************************************************/
+		
+		El input es un decorador de Angular que indica que el valor de un atributo de la clase actual (hija) puede tomar el valor desde un atributo de otra clase (padre). Para usarse se debe colocar el decorador [@Input] antes de un atributo.
+
+			Ejemplo:
+
+				@Input() name : string; // El atributo name recibirá un valor externo.
+
+				[ name ] = "name" // Se manda el valor al atributo de arriba desde otro componente.
+
+/******************************************************************************************************/
+	OUTPUT EN ANGULAR
+/******************************************************************************************************/
+		
+		El output es un decorador de Angular que permite ejecutar funciones desde el componente actual (hijo) pertenecientes de otro componente (padre) al llevar a cabo una acción en la interfaz 
+		(evento).
+
+			Ejemplo:
+
+				// Se declara la variable que contendrá el valor que será pasado al componente padre.
+
+				item : number;
+
+				// Se declara un objeto del tipo EventEmitter para transferir el valor.
+				@Output selected : EventEmitter<type>;
+
+				constructor() {
+
+					// Es necesario inicializr el objeto de tipo EventEmitter en el constructor.
+
+					this.selected = new EventEmitter(); 
+				}
+
+				// Se crea una función la cual transmitira la información y a su vez será escuchada por el componente padre.
+
+				clickFunction = () => { this.selected.emit( this.item ) }
+				________________________________________________________________________________________
+				
+				// En el componente padre se especifica que función del componente hijo se debe escuchar, y también que función del elemento padre sebe ser ejecutada. Opcionalmente se pueden pasar como parámetros los datos que son emitidos tras ejecutar el evento en el componente hijo.
+
+				<div ( clickFunction )="executeParentFunction( $event )"></div

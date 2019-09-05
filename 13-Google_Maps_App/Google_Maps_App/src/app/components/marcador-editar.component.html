@@ -1,0 +1,23 @@
+<form [formGroup]="formulario" class="example-form">
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Título del marcador"
+      formControlName="titulo"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Descripción del marcador"
+      formControlName="descripcion"
+    ></textarea>
+  </mat-form-field>
+  <button (click)="editar()" math-raised-button color="primary">
+    Editar
+  </button>
+  <button (click)="cerrar()" math-raised-button color="warn">
+    Borrar
+  </button>
+</form>

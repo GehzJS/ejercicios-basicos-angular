@@ -1,0 +1,10 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Heroes search page</h1>
+        <p *ngIf="heroes.length > 0" class="lead">Resultados de la búsqueda {{ termino }}</p>
+        <p *ngIf="heroes.length == 0" class="lead">No se han encontrado coincidencias con {{ termino }}</p>
+    </div>
+</div>
+<div class="card-columns">
+    <app-hero-card [heroe]="heroe" [index]="heroe.index" *ngFor="let heroe of heroes; let i = index;"></app-hero-card>
+</div>

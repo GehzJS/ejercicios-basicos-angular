@@ -1,0 +1,22 @@
+<div class="modal-dialog" role="document" *ngIf="video">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">{{ video.title }}</h5>
+    </div>
+    <div class="modal-body">
+      <iframe
+        width="100%"
+        height="300"
+        [src]="video.resourceId.videoId | domseguro"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="modal-footer">
+      <button (click)="cerrar()" type="button" class="btn btn-secondary">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>

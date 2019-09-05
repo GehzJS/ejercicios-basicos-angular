@@ -1,0 +1,17 @@
+<div class="jumbotron jumbotron-fluid bg-danger text-white text-center">
+  <div class="container">
+    <h1 class="display-4">Buscador</h1>
+    <p *ngIf="peliculas.length > 0" class="lead">
+      Resultados de la búsqueda {{ termino }}
+    </p>
+    <p *ngIf="peliculas.length == 0" class="lead">
+      No se han encontrado coincidencias con {{ termino }}
+    </p>
+  </div>
+</div>
+<div class="card-columns">
+  <app-movie-card
+    *ngFor="let pelicula of peliculas; let i = index"
+    [pelicula]="pelicula"
+  ></app-movie-card>
+</div>

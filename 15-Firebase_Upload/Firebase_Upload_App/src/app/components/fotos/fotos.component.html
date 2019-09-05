@@ -1,0 +1,8 @@
+<div class="card-columns">
+  <div *ngFor="let foto of fotos" class="card">
+    <img [src]="foto.url" class="card-img-top pt-4" [alt]="foto.nombre" />
+    <div class="card-body">
+      <h5 class="card-title">{{ foto.nombre }}</h5>
+    </div>
+  </div>
+</div>

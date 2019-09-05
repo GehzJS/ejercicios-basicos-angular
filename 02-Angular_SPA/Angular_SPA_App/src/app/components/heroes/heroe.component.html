@@ -1,0 +1,15 @@
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				<img [src]="heroe.foto" class="card-img-top mb-5" [alt]="heroe.foto">
+				<button [routerLink]="['/heroes']" type="button" class="btn btn-outline-dark btn-block">Regresar</button>
+			</div>
+			<div class="col-8">
+				<h1 class="display-4 mb-5">{{ heroe.nombre | uppercase }} ({{ heroe.nacimiento | date:'y' }})</h1>
+				<p class="lead text-muted"><span class="font-weight-bold">Descripción: </span>{{ heroe.descripcion }}</p>
+				<p class="lead text-muted"><span class="font-weight-bold">Cargo: </span>{{ heroe.cargo }}</p>
+			</div>
+		</div>
+	</div>
+</div>

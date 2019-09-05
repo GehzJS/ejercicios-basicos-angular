@@ -1,0 +1,75 @@
+<div class="jumbotron">
+  <h3>Seleccione las fotos que desee subir</h3>
+  <hr class="my-4" />
+  <div class="row">
+    <div class="col-10">
+      <div
+        appCargarFotos
+        [archivos]="archivos"
+        class="text-center rounded-lg p-3"
+        style="background-color: rgba(0,0,0,0.2)"
+        [ngClass]="{ 'bg-white': sobre }"
+        (sobre)="sobre = $event"
+      >
+        <p class="lead">
+          Arrastre aquí las imagenes
+        </p>
+        <img
+          src="../../../assets/gallery.png"
+          alt="gallery"
+          style="height: 1.5rem;"
+        />
+      </div>
+    </div>
+    <div class="col-2 text-right">
+      <button
+        (click)="cargar()"
+        class="btn btn-success w-100 mb-2"
+        [disabled]="archivos.length === 0"
+      >
+        Subir
+      </button>
+      <button
+        (click)="limpiar()"
+        class="btn btn-danger w-100 "
+        [disabled]="archivos.length === 0"
+      >
+        Limpiar
+      </button>
+    </div>
+  </div>
+  <div>
+    <table *ngIf="archivos.length !== 0" class="table table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Tamaño</th>
+          <th>Progreso</th>
+        </tr>
+      </thead>
+      <tbody style="height: 144px; overflow-y: scroll">
+        <tr *ngFor="let archivo of archivos">
+          <td>{{ archivo.nombre }}</td>
+          <td>{{ archivo.archivo.size / 1024 / 1024 | number: '.2-2' }} MB</td>
+          <td>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                [ngStyle]="{ width: archivo.progreso + '%' }"
+                [ngClass]="{
+                  'bg-danger': archivo.progreso <= 33,
+                  'bg-warning': archivo.progreso > 33 && archivo.progreso <= 66,
+                  'bg-primary': archivo.progreso > 66 && archivo.progreso <= 99,
+                  'bg-success': archivo.progreso === 100
+                }"
+              >
+                {{ archivo.progreso }} %
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

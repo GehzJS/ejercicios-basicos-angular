@@ -1,0 +1,33 @@
+<div class="jumbotron jumbotron-fluid bg-warning text-white text-center">
+  <div class="container">
+    <h1 class="display-4">Inicio</h1>
+  </div>
+</div>
+<h1>Peliculas disponibles</h1>
+<div class="card-columns">
+  <app-movie-card
+    *ngFor="let pelicula of disponibles; let i = index"
+    [pelicula]="pelicula"
+  ></app-movie-card>
+</div>
+<h1>Peliculas para adultos</h1>
+<div class="card-columns">
+  <app-movie-card
+    *ngFor="let pelicula of adultos; let i = index"
+    [pelicula]="pelicula"
+  ></app-movie-card>
+</div>
+<h1>Peliculas para niños</h1>
+<div class="card-columns">
+  <app-movie-card
+    *ngFor="let pelicula of ninos; let i = index"
+    [pelicula]="pelicula"
+  ></app-movie-card>
+</div>
+<h1>Mejores peliculas del año</h1>
+<div class="card-columns">
+  <app-movie-card
+    *ngFor="let pelicula of mejores; let i = index"
+    [pelicula]="pelicula"
+  ></app-movie-card>
+</div>

@@ -1,0 +1,18 @@
+<div class="card" style="width: 18rem;">
+  <img
+    [src]="video.thumbnails | imagen"
+    class="card-img-top"
+    [alt]="video.title"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ video.tilte }}</h5>
+    <p class="card-text">{{ video.description | descripcion }}</p>
+    <button
+      (click)="ver()"
+      class="btn btn-outline-dark btn-block"
+      type="button"
+    >
+      Ver video
+    </button>
+  </div>
+</div>

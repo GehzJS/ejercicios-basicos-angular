@@ -1,0 +1,18 @@
+<div class="row">
+  <h1 class="col-12">Bubble <small>chart</small></h1>
+  <div class="col">
+    <canvas
+      baseChart
+      width="100%"
+      height="42px"
+      [datasets]="data"
+      [options]="options"
+      [colors]="colors"
+      [legend]="legend"
+      [chartType]="type"
+    ></canvas>
+  </div>
+  <button (click)="llenar()" class="btn btn-dark btn-block">
+    Actualizar datos
+  </button>
+</div>
